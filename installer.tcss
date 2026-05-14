@@ -1,0 +1,54 @@
+Screen {
+    background: $surface;
+    color: $text;
+}
+
+Header {
+    height: 3;
+    background: $boost;
+    color: $text;
+}
+
+Footer {
+    height: auto;
+    background: $boost;
+    color: $text;
+}
+
+Button {
+    margin: 0 2;
+}
+
+Button.error {
+    background: $error;
+    color: $text;
+}
+
+Button.warning {
+    background: $warning;
+    color: $text;
+}
+
+Button.success {
+    background: $success;
+    color: $text;
+}
+
+Label {
+    width: 100%;
+    color: $text;
+    margin: 1 0;
+}
+
+SelectionList {
+    height: auto;
+    border: solid $primary;
+}
+
+Select {
+    margin: 1 2;
+}
+
+Markdown {
+    height: auto;
+}
