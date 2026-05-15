@@ -1,7 +1,6 @@
 {
-  "defaultapps": [0, 1, 2, 3, 4, 5],
-  "programming": [0, 1, 2],
-  "apps": [0, 1, 2, 3, 4],
+  "programming": [0, 1, 2, 3, 4],
+  "utilities": [0, 1, 2],
   "enablekvm": true,
   "DE": "KDE Plasma (Heavy)"
 }
