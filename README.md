@@ -7,7 +7,6 @@ A containerized desktop environment accessible via web browser, inspired by [Blo
 -  **Web-Based Desktop** - Access your desktop from any browser
 -  **Docker Containerized** - Easy deployment and portability
 -  **Fast & Lightweight** - Optimized performance
--  **Gaming Support** - Run games with minimal lag
 -  **Audio Support** - Full audio streaming
 -  **Highly Customizable** - Choose your desktop environment and apps
 -  **Multiple Desktop Environments** - KDE Plasma, XFCE4, GNOME, and more
@@ -77,24 +76,16 @@ docker run -d --name=merimnaVM -e PUID=1000 -e PGID=1000 --security-opt seccomp=
 
 ## Available Applications
 
-### Default (Pre-installed)
-- Wine - Run Windows applications
-- Chrome - Web browser
-- Xarchiver - Archive manager
-- Discord - Communication
-- Steam - Gaming platform
-- Minecraft - Game
-
 ### Programming
 - OpenJDK 8 & 17 - Java development
 - VSCodium - Code editor
+- Git - Distributed version control system
+- Python3 - Python coding language
 
 ### Additional Apps
 - VLC - Media player
 - LibreOffice - Office suite
 - Synaptic - Package manager
-- AQemu - Virtual machine manager
-- TLauncher - Minecraft launcher
 
 ## Configuration
 
@@ -102,9 +93,8 @@ Edit `options.json` to customize which apps are installed:
 
 ```json
 {
-  "defaultapps": [0, 1, 2, 3, 4, 5],
   "programming": [0, 1, 2],
-  "apps": [0, 1, 2, 3, 4],
+  "utilities": [0, 1, 2],
   "enablekvm": true,
   "DE": "KDE Plasma (Heavy)"
 }
