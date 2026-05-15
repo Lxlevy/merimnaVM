@@ -3,7 +3,7 @@ from textual.screen import Screen
 from textual.containers import Horizontal, Vertical
 from textual.widgets import Footer, Header, SelectionList, Label, Button, Markdown, Select, Static, Switch
 
-### JSON exporter ###
+### JSON Exporter ###
 
 def savejson(json):
     with open('options.json', 'w') as f:
@@ -12,17 +12,16 @@ def savejson(json):
 #####################
 
 Head="""
-# merimnaVM installer
+# merimnaVM Installer
 
 > merimnaVM (powered by KasmVNC & Docker)
 
-merimnaVM is a VM that
-* runs entirely in a web browser (ports)
+merimnaVM is a VM that...
+* runs entirely in a web browser
 * lightweight and fast
-* has windows app support
 * has audio support
-* runs games with the least amount of lag
-* highly customizable at your service
+* can possibly bypass network restrictions
+* highly customizable
 """
 InstallHead="""
 # merimnaVM Installer
@@ -38,33 +37,23 @@ class InstallScreen(Screen):
         yield Markdown(InstallHead)
         yield Horizontal (
         Vertical (
-         Label("Default Apps (you should keep them)"),
+         Label("Programming & Development"),
          SelectionList[int]( 
-            ("Wine", 0, True),
-            ("Chrome", 1, True),
-            ("Xarchiver", 2, True),
-            ("Discord", 3, True),
-            ("Steam", 4, True),
-            ("Minecraft", 5, True),
-            id="defaultapps"
-        ),),
-        Vertical (
-         Label("Programming"),
-         SelectionList[int]( 
-            ("OpenJDK 8 (jre)", 0),
-            ("OpenJDK 17 (jre)", 1),
-            ("VSCodium", 2),
+            ("Python 3", 0, True),
+            ("OpenJDK 8 (jre)", 1, True),
+            ("OpenJDK 17 (jre)", 2, True),
+            ("VSCodium", 3, True),
+            ("Git", 4, True),
+            ("Node.js", 5),
             id="programming"
         ),),
         Vertical (
-         Label("Apps"),
+         Label("Utilities"),
          SelectionList[int]( 
-            ("VLC", 0),
+            ("VLC Media Player", 0),
             ("LibreOffice", 1),
-            ("Synaptic", 2),
-            ("AQemu (VMs)", 3),
-            ("TLauncher", 4),
-            id="apps"
+            ("Synaptic Package Manager", 2),
+            id="utilities"
         ),),
         )
 
@@ -81,7 +70,7 @@ class InstallScreen(Screen):
         if event.button.id == "back":
             app.pop_screen()
         if event.button.id == "in":
-            data = {"defaultapps": self.query_one("#defaultapps").selected, "programming": self.query_one("#programming").selected, "apps": self.query_one("#apps").selected, "enablekvm": True, "DE": self.query_one("#de").value}
+            data = {"programming": self.query_one("#programming").selected, "utilities": self.query_one("#utilities").selected, "enablekvm": True, "DE": self.query_one("#de").value}
             savejson(data)
             app.exit()
 
