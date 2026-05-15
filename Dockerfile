@@ -16,6 +16,8 @@ COPY options.json /
 COPY /root/ /
 
 RUN \
+  echo "**** remove broken nodejs repo ****" && \
+  rm -f /etc/apt/sources.list.d/nodesource.list && \
   echo "**** install packages ****" && \
   add-apt-repository -y ppa:mozillateam/ppa && \
   apt-get update && \
